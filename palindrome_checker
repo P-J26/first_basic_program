@@ -1,0 +1,32 @@
+import string
+
+
+def is_palindrome(text):
+    cleaned_text = "".join(char.lower() for char in text if char.isalnum())
+    return cleaned_text == cleaned_text[::-1]
+
+
+def main():
+    print("Palindrome Checker")
+    print("Enter a word or phrase to check if it's a palindrome.")
+    print("Type 'quit' to exit.")
+
+    while True:
+        user_input = input("\nEnter text: ")
+
+        if user_input.lower() == 'quit':
+            break
+
+        if not user_input.strip():
+            print("Please enter some text.")
+            continue
+
+        if is_palindrome(user_input):
+            print(f"'{user_input}' is a palindrome!")
+        else:
+            print(f"'{user_input}' is not a palindrome.")
+
+    print("\n Bye guyysss!")
+
+if __name__ == "__main__":
+    main()
