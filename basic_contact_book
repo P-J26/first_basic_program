@@ -1,0 +1,37 @@
+def show_menu():
+    print("\n--- Contact Book ---")
+    print("1. Add Contact")
+    print("2. View Contacts")
+    print("3. Exit")
+
+def add_contact(contacts):
+    name = input("Enter contact name: ")
+    phone = input("Enter phone number: ")
+    contacts.append({"name": name, "phone": phone})
+    print("Contact added.")
+
+def view_contacts(contacts):
+    if not contacts:
+        print("No contacts found.")
+    else:
+        print("\nContacts List:")
+        for i, c in enumerate(contacts, 1):
+            print(f"{i}. Name: {c['name']}, Phone: {c['phone']}")
+
+def main():
+    contacts = []
+    while True:
+        show_menu()
+        choice = input("Choose an option: ")
+        if choice == '1':
+            add_contact(contacts)
+        elif choice == '2':
+            view_contacts(contacts)
+        elif choice == '3':
+            print("Exiting Contact Book.")
+            break
+        else:
+            print("Invalid option. Try again.")
+
+if __name__ == "__main__":
+    main()
